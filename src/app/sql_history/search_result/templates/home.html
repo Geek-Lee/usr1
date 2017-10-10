@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>数据库使用记录</title>
+        <!-- 移动设备优先，viewport为了触屏端移动缩放 -->
+        <meta name="viewport" content ="width=device-width,
+                                         initial-scale=1.0,
+                                         maximum=1.0" 
+         charset="utf-8">
+        <!-- 引入BootStrap -->
+        <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+         <![endif]-->
+         <style>
+        /* Custom Styles */
+            ul.nav-tabs
+            {
+                width: 140px;
+                margin-top: 20px;
+                border-radius: 4px;
+                border: 1px solid #ddd;
+                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+            }
+            ul.nav-tabs li
+            {
+                margin: 0;
+                border-top: 1px solid #ddd;
+            }
+            ul.nav-tabs li:first-child
+            {
+                border-top: none;
+            }
+            ul.nav-tabs li a
+            {
+                margin: 0;
+                padding: 8px 16px;
+                border-radius: 0;
+            }
+            ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover
+            {
+                color: #fff;
+                background: #0088cc;
+                border: 1px solid #0088cc;
+            }
+            ul.nav-tabs li:first-child a
+            {
+                border-radius: 4px 4px 0 0;
+            }
+            ul.nav-tabs li:last-child a{
+                border-radius: 0 0 4px 4px;
+            }
+            ul.nav-tabs.affix
+            {
+                top: 30px; /* Set the top position of pinned element */
+            }
+        </style>
+    </head>
+    <body data-spy="scroll" data-target="#myScrollspy">
+        <div class="well well-sm">
+        <div class="container">
+        <form class="form-inline text-right" role="form">
+            <div class="form-group">
+                <input type="text" class="form-control" id="name" placeholder="搜索用户">
+            </div>
+            <button type="submit" class="btn btn-default">搜索</button>
+        </form>
+        </div>
+        </div>
+        <div class="container">
+            <table class="table table-striped table-hover table-bordered" id="sql_history_1">
+            <caption>数据库使用记录</caption>
+            <thread>
+                <tr>
+                    <th>用户</th>
+                    <th>IP</th>
+                    <th>查询时间</th>
+                    <th>查询耗时</th>
+                    <th>锁表时间</th>
+                    <th>返回行数</th>
+                    <th>查询行数</th>
+                    <th>查询表名</th>
+                </tr>
+            </thread>
+            <tobody>
+                {% for post in posts %}
+                <tr>
+                    <td>{{post.user}}</td>
+                    <td>{{post.ip_address}}</td>
+                    <td>{{post.creat_at}}</td>
+                    <td>{{post.query_time}}</td>
+                    <td>{{post.lock_time}}</td>
+                    <td>{{post.rows_sent}}</td>
+                    <td>{{post.rows_examined}}</td>
+                    <td>{{post.query_table}}</td>
+                </tr>
+                {% endfor %}
+            </tobody>
+        </table>
+        <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <!-- 包括所有已编译的插件 -->
+        <script src="js/bootstrap.min.js"></script>
+</html>

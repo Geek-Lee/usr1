@@ -1,0 +1,7 @@
+django==1.8.10
+pandas
+pymysql
+django-bootstrap-toolkit
+apscheduler
+sqlalchemy
+requests
